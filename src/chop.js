@@ -15,3 +15,7 @@ function chop(value, array) {
 		return -1;
 	}
 }
+
+function recursive_chop(value, array) {
+	
+}
