@@ -1,20 +1,17 @@
 //iterative chop
-function chop(needle, haystack) {
-	var len = haystack.length, pos = -1,
-			curLen = len;
-	for (var i = 0, maxIter = index = Math.floor(len / 2); i <= maxIter; i++) {
-		//needle is in the first part of current subarray
-		if (needle === haystack[index]) {
-			pos = index;
-			break;
-		} else if (needle < haystack[index]) {
-			index = Math.floor((2 * index - Math.floor(curLen/2))/2);
+function chop(value, array) {
+	var min = 0, max = array.length - 1, mid;
+	do {
+		mid = Math.floor((min + max) / 2);
+		if (value < array[mid]) {
+			max = mid - 1;
 		} else {
-			index = Math.floor((2 * index + Math.floor(curLen/2))/2);
+			min = mid + 1;
 		}
-		curLen = Math.floor(curLen/2);
+	} while(array[mid] !== value && min <= max);
+	if (array[mid] === value) {
+		return mid;
+	} else {
+		return -1;
 	}
-	return pos;
 }
-
-chop(5, [1, 3, 5]);
