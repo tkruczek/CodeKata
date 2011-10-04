@@ -1,4 +1,4 @@
-var arraySize = 5000000,
+var arraySize = 100000,
 		loopLength = 1000;
 
 
@@ -14,7 +14,7 @@ var index = Math.round(Math.random() * arraySize),
 
 window.onload = function () {
 	var p = document.createElement('p');
-	p.innerHTML = 'Array size: ' + arraySize + '<br />index: ' + index + '<br />Searched value: ' + value;
+	p.innerHTML = 'Array size: ' + arraySize + '<br />index: ' + index + '<br />Searched value: ' + value + '<br />Max iterations: ' + Math.ceil(Math.log(arraySize) / Math.log(2));
 	document.body.appendChild(p);
 	
 	runBenchmark('iterative chop', function() {

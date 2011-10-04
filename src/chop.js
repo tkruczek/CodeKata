@@ -38,3 +38,7 @@ function recursive_chop(value, array) {
 		return arguments.callee(min, max);
 	})(0, array.length - 1);
 }
+
+function functional_chop(value, array) {
+	
+}
