@@ -40,5 +40,32 @@ function recursive_chop(value, array) {
 }
 
 function functional_chop(value, array) {
-	
+	//create a copy on input array to work on
+	var tmpArray = array.slice(0);
+	//returns the half of the input array that contains the value
+	//stores the info about the start index of the returned array within input array
+	//if the value is found the 'foundAd' property is set on the returned array
+	function betterHalf(value, array) {
+		var mid = Math.floor(array.length / 2),
+				retArray = [];
+		if (value == array[mid]) {
+			retArray.foundAt = array.startIndex + mid;
+		} else if (value < array[mid]) {
+			retArray = array.slice(0, mid);
+			retArray.startIndex = array.startIndex;
+			retArray.foundAt = -1;
+		} else if (value > array[mid]) {
+			retArray = array.slice(mid + 1);
+			retArray.startIndex = array.startIndex + mid + 1;
+			retArray.foundAt = -1;
+		}
+		return retArray;
+	}
+	tmpArray.startIndex = 0;
+	tmpArray.foundAt = -1;
+	while (tmpArray.length && (tmpArray.foundAt < 0)){
+		tmpArray = betterHalf(value, tmpArray);
+	}
+	return tmpArray.foundAt;
 }
+functional_chop(1, [1, 3, 5]);

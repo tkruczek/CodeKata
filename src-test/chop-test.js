@@ -43,3 +43,25 @@ ChopTestCase.prototype["test recursive chop"] = function() {
 	assertEquals('t18',-1, recursive_chop(6, [1, 3, 5, 7]));
 	assertEquals('t19',-1, recursive_chop(8, [1, 3, 5, 7]));
 };
+
+ChopTestCase.prototype["test functional chop"] = function() {
+	assertEquals('t1', -1, functional_chop(3, []));
+	assertEquals('t2', -1, functional_chop(3, [1]));
+	assertEquals('t3', 0, functional_chop(1, [1]));
+	assertEquals('t4',0, functional_chop(1, [1, 3, 5]));
+	assertEquals('t5',1, functional_chop(3, [1, 3, 5]));
+	assertEquals('t6',2, functional_chop(5, [1, 3, 5]));
+	assertEquals('t7',-1, functional_chop(0, [1, 3, 5]));
+	assertEquals('t8',-1, functional_chop(2, [1, 3, 5]));
+	assertEquals('t9',-1, functional_chop(4, [1, 3, 5]));
+	assertEquals('t10',-1, functional_chop(6, [1, 3, 5]));
+	assertEquals('t11',0, functional_chop(1, [1, 3, 5, 7]));
+	assertEquals('t12',1, functional_chop(3, [1, 3, 5, 7]));
+	assertEquals('t13',2, functional_chop(5, [1, 3, 5, 7]));
+	assertEquals('t14',3, functional_chop(7, [1, 3, 5, 7]));
+	assertEquals('t15',-1, functional_chop(0, [1, 3, 5, 7]));
+	assertEquals('t16',-1, functional_chop(2, [1, 3, 5, 7]));
+	assertEquals('t17',-1, functional_chop(4, [1, 3, 5, 7]));
+	assertEquals('t18',-1, functional_chop(6, [1, 3, 5, 7]));
+	assertEquals('t19',-1, functional_chop(8, [1, 3, 5, 7]));
+};
